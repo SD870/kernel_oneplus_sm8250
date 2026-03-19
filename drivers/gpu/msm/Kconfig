@@ -17,6 +17,17 @@ config QCOM_KGSL
 	  on QTI targets. This includes power management, memory management,
 	  and scheduling for the Adreno GPUs.
 
+config ADRENO_IDLER
+	bool "Adreno Idler"
+	depends on QCOM_KGSL
+	default n
+	help
+	  Adreno Idler is an idle power consumption reduction algorithm.
+	  It actively lowers the GPU frequency to the absolute minimum
+	  when the GPU workload is extremely low.
+	  
+	  If unsure, say N.
+
 config QCOM_ADRENO_DEFAULT_GOVERNOR
 	string "devfreq governor for the adreno core"
 	default "msm-adreno-tz" if DEVFREQ_GOV_QCOM_ADRENO_TZ
